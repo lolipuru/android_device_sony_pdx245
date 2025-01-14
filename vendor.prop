@@ -112,7 +112,7 @@ vendor.qc2audio.suspend.enabled=true
 vendor.qc2audio.per_frame.flac.dec.enabled=true
 
 # Bluetooth
-bluetooth.device.default_name=Xperia 1 V
+bluetooth.device.default_name=Xperia 1 VI
 bluetooth.device.class_of_device=90,2,12
 bluetooth.hardware.power.idle_cur_ma=6
 bluetooth.hardware.power.operating_voltage_mv=3700
