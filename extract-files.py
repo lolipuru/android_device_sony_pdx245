@@ -123,6 +123,13 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libcodec2_shim.so'
     ),
+    'vendor/lib64/libarcsoft_hdr_adapter.so': blob_fixup()
+    .add_needed(
+        'liblog.so',
+    )
+    .add_needed(
+        'libcutils.so',
+    ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

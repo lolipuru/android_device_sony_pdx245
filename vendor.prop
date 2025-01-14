@@ -112,6 +112,7 @@ vendor.qc2audio.suspend.enabled=true
 vendor.qc2audio.per_frame.flac.dec.enabled=true
 
 # Bluetooth
+bluetooth.device.default_name=Xperia 1 V
 bluetooth.device.class_of_device=90,2,12
 bluetooth.hardware.power.idle_cur_ma=6
 bluetooth.hardware.power.operating_voltage_mv=3700
@@ -277,6 +278,11 @@ sys.vendor.shutdown.waittime=500
 # Sensors
 persist.vendor.sensors.debug.hal=0
 
+# Smooth display
+ro.surface_flinger.set_idle_timer_ms=4000
+ro.surface_flinger.set_touch_timer_ms=4000
+ro.surface_flinger.set_display_power_timer_ms=1000
+
 # USB
 ro.usb.uvc.enabled=true
 vendor.usb.controller=a600000.dwc3
@@ -295,4 +301,3 @@ wifi.aware.interface=wifi-aware0
 
 # Zygote
 zygote.critical_window.minute=10
-

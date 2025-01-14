@@ -10,6 +10,14 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -340,6 +348,9 @@ PRODUCT_PACKAGES += \
     nqnfcinfo
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/nfc/libnfc-nxp-typef.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-typef.conf
+
+PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
@@ -362,6 +373,9 @@ PRODUCT_PACKAGES += \
     SonyYodoSettingsResCommon \
     SonyYodoSystemUIResCommon \
     SonyYodoTelephonyResCommon \
+    SonyPDX234SystemUIRes \
+    SonyPDX234NfcNciRes \
+    SonyPDX234FrameworksRes \
     WifiResCommon
 
 # Partitions
@@ -602,5 +616,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     XperiaParts
 
-# Inherit from proprietary files makefile
-$(call inherit-product, vendor/sony/sm8550-common/sm8550-common-vendor.mk)
+# Inherit from vendor blobs
+$(call inherit-product, vendor/sony/pdx234/pdx234-vendor.mk)
